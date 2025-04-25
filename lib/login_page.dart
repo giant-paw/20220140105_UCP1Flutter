@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:show_hide_password/show_hide_password.dart';
+import 'package:ucp1_105/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 196, 225),
+      
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -70,7 +72,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
 
-            ElevatedButton(onPressed: () {}, child: Text("Login")),
+            ElevatedButton(onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+            }, child: Text("Login")),
 
             TextButton(
               onPressed: () {
