@@ -72,20 +72,31 @@ class _LoginPageState extends State<LoginPage> {
 
             ElevatedButton(onPressed: () {}, child: Text("Login")),
 
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan( 
-                    text: 'Belum Memiliki Akun?',
-                    style: TextStyle(color: const Color.fromARGB(255, 7, 7, 7)),
-                  ),
-                  TextSpan(
-                    text: ' Silahkan Daftar Disini',
-                    style: TextStyle(color: const Color.fromARGB(255, 255, 11, 11)),
-                  ),
-                ],
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Belum Memiliki Akun?',
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 7, 7, 7),
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' Silahkan Daftar Disini',
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 255, 11, 11),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+
+            
           ],
         ),
       ),
