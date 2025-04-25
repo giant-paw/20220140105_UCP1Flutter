@@ -11,7 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
-  TextEditingController controller = TextEditingController();
+  TextEditingController loginpasscontroller = TextEditingController();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,9 +49,9 @@ class _LoginPageState extends State<LoginPage> {
             //   ),
             // ),
             ShowHidePasswordTextField(
-              controller: controller,
+              controller: loginpasscontroller,
               fontStyle: const TextStyle(fontSize: 14),
-              hintColor: Colors.blue,
+              hintColor: const Color.fromARGB(255, 0, 0, 0),
               visibleOffIcon: Iconsax.eye_slash,
               visibleOnIcon: Iconsax.eye,
 
@@ -95,8 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-
-            
           ],
         ),
       ),
