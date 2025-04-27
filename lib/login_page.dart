@@ -16,12 +16,10 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 237, 196, 225),
-
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images.bg1.jpg'),
+            image: AssetImage('assets/images/bg1.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -101,15 +99,31 @@ class _LoginPageState extends State<LoginPage> {
                 //     ),
                 //   ),
                 // ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                  child: Text("Login"),
+                SizedBox(height: 32),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 254, 75, 159),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    },
+                    child: Text("Login", style: TextStyle(color: Colors.white),),
+                  ),
                 ),
+
+                SizedBox(height: 24),
 
                 TextButton(
                   onPressed: () {
@@ -121,13 +135,15 @@ class _LoginPageState extends State<LoginPage> {
                         TextSpan(
                           text: 'Belum Memiliki Akun?',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 7, 7, 7),
+                            color: const Color.fromARGB(255, 255, 252, 252),
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                         TextSpan(
                           text: ' Silahkan Daftar Disini',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 255, 11, 11),
+                            color: const Color.fromARGB(255, 254, 75, 159),
+                            fontWeight: FontWeight.bold
                           ),
                         ),
                       ],
