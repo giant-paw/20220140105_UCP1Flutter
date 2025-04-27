@@ -33,69 +33,74 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Image.asset(
                   'assets/images/coba_logo.png', // Ganti logo jika mau
-                    height: 200,
-                    width: 200,
+                  height: 200,
+                  width: 200,
                 ),
 
                 SizedBox(height: 24),
-                  Text(
-                    'SELAMAT DATANG KEMBALI',
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black, // Bisa disesuaikan
-                    ),
-                    textAlign: TextAlign.center,
+                Text(
+                  'SELAMAT DATANG KEMBALI',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black, // Bisa disesuaikan
                   ),
+                  textAlign: TextAlign.center,
+                ),
+
+                SizedBox(height: 24),
 
                 TextFormField(
                   decoration: InputDecoration(
-                    isDense: true,
                     hintText: "Email",
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.email),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
+                    filled: true,
+                    fillColor: Colors.white,
                   ),
                 ),
 
-                Text('Password'),
+                SizedBox(height: 24),
 
-                // TextFormField(
+                TextFormField(
+                  obscureText: true,
+
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    prefixIcon: Icon(Icons.key),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    fillColor: Colors.white,
+                  ),
+                ),
+
+                // ShowHidePasswordTextField(
+                //   controller: loginpasscontroller,
+                //   fontStyle: const TextStyle(fontSize: 14),
+                //   hintColor: const Color.fromARGB(255, 0, 0, 0),
+                //   visibleOffIcon: Iconsax.eye_slash,
+                //   visibleOnIcon: Iconsax.eye,
+
                 //   decoration: InputDecoration(
-                //     contentPadding: EdgeInsets.only(top: 20),
                 //     isDense: true,
-                //     hintText: "Password",
+                //     hintText: 'Enter Your Password',
+                //     hintStyle: Theme.of(
+                //       context,
+                //     ).textTheme.labelMedium!.copyWith(
+                //       color: Colors.black38,
+                //       fontWeight: FontWeight.w500,
+                //       fontSize: 12,
+                //     ),
                 //     prefixIcon: Padding(
                 //       padding: EdgeInsets.only(top: 15),
                 //       child: Icon(Icons.key),
                 //     ),
                 //   ),
                 // ),
-                ShowHidePasswordTextField(
-                  controller: loginpasscontroller,
-                  fontStyle: const TextStyle(fontSize: 14),
-                  hintColor: const Color.fromARGB(255, 0, 0, 0),
-                  visibleOffIcon: Iconsax.eye_slash,
-                  visibleOnIcon: Iconsax.eye,
-
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: 'Enter Your Password',
-                    hintStyle: Theme.of(
-                      context,
-                    ).textTheme.labelMedium!.copyWith(
-                      color: Colors.black38,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                    ),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.key),
-                    ),
-                  ),
-                ),
-
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(
