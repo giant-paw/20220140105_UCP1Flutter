@@ -62,14 +62,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     filled: true,
-                    hintStyle: TextStyle(color: Colors.grey[800]),
+                    hintStyle: TextStyle(color: Colors.grey),
                     hintText: "Nama Lengkap",
                     fillColor: Colors.white,
                     prefixIcon: const Icon(Icons.person_3),
                   ),
                 ),
 
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
 
                 Row(
                   children: [
@@ -93,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               filled: true,
                               fillColor: Colors.white,
-                              hintStyle: TextStyle(color: Colors.grey[800]),
+                              hintStyle: TextStyle(color: Colors.grey),
                               hintText: "Email",
                               prefixIcon: const Icon(Icons.email),
                             ),
@@ -125,9 +125,11 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                               filled: true,
                               fillColor: Colors.white,
-                              hintStyle: TextStyle(color: Colors.grey[800]),
+                              hintStyle: TextStyle(color: Colors.grey),
                               hintText: "No HP",
-                              prefixIcon: const Icon(Icons.phone_android_rounded)
+                              prefixIcon: const Icon(
+                                Icons.phone_android_rounded,
+                              ),
                             ),
                           ),
                         ],
@@ -136,57 +138,82 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
 
-                Text(''),
+                const SizedBox(height: 10),
 
-                ShowHidePasswordTextField(
-                  controller: regisPassController,
-                  fontStyle: const TextStyle(fontSize: 14),
-                  hintColor: const Color.fromARGB(255, 16, 16, 16),
-                  visibleOffIcon: Iconsax.eye_slash,
-                  visibleOnIcon: Iconsax.eye,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Password',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
 
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: 'Password',
-                    hintStyle: Theme.of(
-                      context,
-                    ).textTheme.labelMedium!.copyWith(
-                      color: const Color.fromARGB(96, 255, 0, 0),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
+                          const SizedBox(height: 5),
+
+                          ShowHidePasswordTextField(
+                            controller: regisPassController,
+                            hintText: 'Password',
+                            hintColor: Colors.grey,
+                            visibleOffIcon: Iconsax.eye_slash,
+                            visibleOnIcon: Iconsax.eye,
+
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              prefixIcon: Icon(Icons.key_rounded),
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.key),
+
+                    SizedBox(width: 10),
+
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Konfirmasi Password',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+
+                          const SizedBox(height: 5),
+
+                          ShowHidePasswordTextField(
+                            controller: regisPassController,
+                            hintText: 'Password',
+                            hintColor: Colors.grey,
+                            visibleOffIcon: Iconsax.eye_slash,
+                            visibleOnIcon: Iconsax.eye,
+
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              prefixIcon: Icon(Icons.password_outlined),
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-
-                Text(''),
-
-                ShowHidePasswordTextField(
-                  controller: regisPassController,
-                  fontStyle: const TextStyle(fontSize: 14),
-                  hintColor: const Color.fromARGB(255, 16, 16, 16),
-                  visibleOffIcon: Iconsax.eye_slash,
-                  visibleOnIcon: Iconsax.eye,
-
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: 'Password',
-                    hintStyle: Theme.of(
-                      context,
-                    ).textTheme.labelMedium!.copyWith(
-                      color: const Color.fromARGB(96, 255, 0, 0),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                    ),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.key),
-                    ),
-                  ),
-                ),
+                SizedBox(height: 5),
 
                 ElevatedButton(
                   onPressed: () {
