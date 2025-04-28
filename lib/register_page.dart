@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:show_hide_password/show_hide_password_text_field.dart';
+import 'package:ucp1_105/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -11,7 +12,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   @override
-  TextEditingController regisPassController = TextEditingController();
+  final TextEditingController regisPassController = TextEditingController();
+  final TextEditingController confirmPassController = TextEditingController();
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -176,7 +179,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
 
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
 
                     Expanded(
                       child: Column(
@@ -193,7 +196,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           const SizedBox(height: 5),
 
                           ShowHidePasswordTextField(
-                            controller: regisPassController,
+                            controller: confirmPassController,
                             hintText: 'Password',
                             hintColor: Colors.grey,
                             visibleOffIcon: Iconsax.eye_slash,
@@ -213,14 +216,63 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 5),
 
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context, '/login');
-                  },
-                  child: Text('Register'),
+                const SizedBox(height: 15),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 254, 75, 159),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    onPressed: () {
+                      if (regisPassController.text.isEmpty ||
+                          confirmPassController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Password tidak boleh kosong!'),
+                            backgroundColor: Colors.redAccent,
+                          ),
+                        );
+                      } else if (regisPassController.text !=
+                          confirmPassController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Password dan Konfirmasi Password tidak sama!',
+                            ),
+                            backgroundColor: Colors.redAccent,
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Pendaftaran berhasil!'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                        Navigator.pop(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      }
+                    },
+                    child: const Text(
+                      'Daftar',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
+
+                const SizedBox(height: 15),
 
                 TextButton(
                   onPressed: () {
@@ -233,12 +285,16 @@ class _RegisterPageState extends State<RegisterPage> {
                           text: 'Sudah Memiliki Akun? Silahkan ',
                           style: TextStyle(
                             color: const Color.fromARGB(255, 7, 7, 7),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                         TextSpan(
                           text: 'Login Disini',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 255, 11, 11),
+                            color: const Color.fromARGB(255, 254, 75, 159),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                       ],
