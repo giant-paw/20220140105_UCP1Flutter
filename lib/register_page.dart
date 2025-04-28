@@ -14,10 +14,15 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   final TextEditingController regisPassController = TextEditingController();
   final TextEditingController confirmPassController = TextEditingController();
+  final TextEditingController namaLengkapController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nomorHPController = TextEditingController();
 
   Widget build(BuildContext context) {
+    final _formkey = GlobalKey<FormState>();
     return Scaffold(
       body: Container(
+        key: _formkey,
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
@@ -59,7 +64,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 const SizedBox(height: 10),
 
-                TextField(
+                TextFormField(
+                  validator: (data) {
+                    if (data == null || data.isEmpty) {
+                      return 'Nama Lengkap Tidak Boleh Kosong';
+                    }
+                    return null;
+                  },
+                  controller: namaLengkapController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
@@ -89,7 +101,14 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
 
                           const SizedBox(height: 5),
-                          TextField(
+                          TextFormField(
+                            controller: emailController,
+                            validator: (data) {
+                              if (data == null || data.isEmpty) {
+                                return 'Email Tidak Boleh Kosong';
+                              }
+                              return null;
+                            },
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -121,7 +140,14 @@ class _RegisterPageState extends State<RegisterPage> {
 
                           const SizedBox(height: 5),
 
-                          TextField(
+                          TextFormField(
+                            controller: nomorHPController,
+                            validator: (data) {
+                              if (data == null || data.isEmpty) {
+                                return 'No HP Tidak Boleh Kosong';
+                              }
+                              return null;
+                            },
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
@@ -255,9 +281,16 @@ class _RegisterPageState extends State<RegisterPage> {
                             backgroundColor: Colors.green,
                           ),
                         );
-                        Navigator.pop(
+                        Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
+                          MaterialPageRoute(
+                            builder:
+                                (context) => LoginPage(
+                                  namaLengkap: namaLengkapController.text,
+                                  email: emailController.text,
+                                  nomorHP: nomorHPController.text,
+                                ),
+                          ), (Route<dynamic> route) => false,
                         );
                       }
                     },

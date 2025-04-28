@@ -4,7 +4,12 @@ import 'package:show_hide_password/show_hide_password.dart';
 import 'package:ucp1_105/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final String? namaLengkap;
+  final String? email;
+  final String? nomorHP;
+
+  const LoginPage({Key? key, this.namaLengkap, this.email, this.nomorHP})
+    : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
