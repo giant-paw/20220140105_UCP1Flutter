@@ -25,10 +25,11 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
 
         child: Container(
-          color: Colors.white.withOpacity(0.8),
+          color: Colors.white.withOpacity(0.3),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 40),
@@ -53,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
 
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
 
                 TextField(
                   decoration: InputDecoration(
@@ -63,48 +64,76 @@ class _RegisterPageState extends State<RegisterPage> {
                     filled: true,
                     hintStyle: TextStyle(color: Colors.grey[800]),
                     hintText: "Nama Lengkap",
-                    fillColor: const Color.fromARGB(134, 255, 255, 255),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.person),
-                    ),
+                    fillColor: Colors.white,
+                    prefixIcon: const Icon(Icons.person_3),
                   ),
                 ),
 
-                Text('Email'),
+                const SizedBox(height: 5),
 
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    filled: true,
-                    hintStyle: TextStyle(color: Colors.grey[800]),
-                    hintText: "Email",
-                    fillColor: const Color.fromARGB(134, 255, 255, 255),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.person),
-                    ),
-                  ),
-                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Email',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
 
-                Text('No HP'),
+                          const SizedBox(height: 5),
+                          TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              hintStyle: TextStyle(color: Colors.grey[800]),
+                              hintText: "Email",
+                              prefixIcon: const Icon(Icons.email),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
 
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                    const SizedBox(width: 10),
+
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'NO HP',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+
+                          const SizedBox(height: 5),
+
+                          TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              hintStyle: TextStyle(color: Colors.grey[800]),
+                              hintText: "No HP",
+                              prefixIcon: const Icon(Icons.phone_android_rounded)
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    filled: true,
-                    hintStyle: TextStyle(color: Colors.grey[800]),
-                    hintText: "No HP",
-                    fillColor: const Color.fromARGB(134, 255, 255, 255),
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Icon(Icons.phone),
-                    ),
-                  ),
+                  ],
                 ),
 
                 Text(''),
