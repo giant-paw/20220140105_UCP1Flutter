@@ -68,6 +68,75 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+
+      backgroundColor: const Color.fromARGB(255, 233, 233, 233),
+      body: Column(
+        children: [
+          const SizedBox(height: 155),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: ClipRRect(
+              child: Container(
+                color: Colors.grey[300],
+                height: 200,
+                width: double.infinity,
+                child: Center(
+                  child: Image(
+                    image: AssetImage('assets/images/banner1.jpg'),
+                    fit: BoxFit.cover,
+                    height: 200,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(200, 254, 75, 158), 
+                          padding: const EdgeInsets.all(30),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.home_work_outlined,
+                              color: Colors.white,
+                              size: 40,
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Data Piket',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
