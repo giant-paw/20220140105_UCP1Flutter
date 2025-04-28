@@ -4,11 +4,8 @@ import 'package:show_hide_password/show_hide_password.dart';
 import 'package:ucp1_105/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  final String? namaLengkap;
-  final String? email;
-  final String? nomorHP;
 
-  const LoginPage({Key? key, this.namaLengkap, this.email, this.nomorHP})
+  const LoginPage({Key? key})
     : super(key: key);
 
   @override
@@ -17,6 +14,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
+   final TextEditingController emailController = TextEditingController();
   bool _sembunyikanPassword = true;
 
   Widget build(BuildContext context) {
@@ -57,6 +55,12 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 24),
 
                   TextFormField(
+                    controller: emailController,
+                    validator: (data) {
+                      if(data == null || data.isEmpty){
+                        return 'Email Tidak Boleh Kosong';
+                      }return null;
+                    },
                     decoration: InputDecoration(
                       hintText: "Email",
                       prefixIcon: Icon(Icons.email),
@@ -72,7 +76,11 @@ class _LoginPageState extends State<LoginPage> {
 
                   TextFormField(
                     obscureText: _sembunyikanPassword,
-
+                    validator: (data) {
+                      if(data == null || data.isEmpty){
+                        return 'Password Tidak Boleh Kosong'; 
+                      } return null;
+                    },
                     decoration: InputDecoration(
                       hintText: "Password",
                       prefixIcon: Icon(Icons.key),
@@ -137,13 +145,17 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => HomePage(
+                              email: emailController.text,
+                            ),
                           ),
+                          (route) => false,
                         );
                       },
+                      
                       child: Text(
                         "Login",
                         style: TextStyle(color: Colors.white),

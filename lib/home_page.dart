@@ -1,30 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_105/login_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends StatelessWidget {
+  final String email;
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+  const HomePage({super.key, required this.email});
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 237, 196, 225),
-      appBar: AppBar(title: Text('Home Page')),
-      body: Center(
-        child: Column(
-          spacing: 8,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Selamat Datang'),
-
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('COBA KLIK'),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        toolbarHeight: 110,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/blur.jpg',
+              ), // Ganti dengan gambar kamu
+              fit:
+                  BoxFit
+                      .cover, // Menyesuaikan gambar agar memenuhi seluruh area
             ),
-          ],
+          ),
+
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Row(
+            children: [
+              Container(
+                width: 75,
+                height: 75,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/profile.jpeg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+
+              const SizedBox(width: 17),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Selamat Datang $email",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              IconButton(
+                icon: const Icon(Icons.logout, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

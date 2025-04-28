@@ -15,7 +15,6 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController regisPassController = TextEditingController();
   final TextEditingController confirmPassController = TextEditingController();
   final TextEditingController namaLengkapController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController nomorHPController = TextEditingController();
 
   Widget build(BuildContext context) {
@@ -102,7 +101,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
                           const SizedBox(height: 5),
                           TextFormField(
-                            controller: emailController,
                             validator: (data) {
                               if (data == null || data.isEmpty) {
                                 return 'Email Tidak Boleh Kosong';
@@ -286,9 +284,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           MaterialPageRoute(
                             builder:
                                 (context) => LoginPage(
-                                  namaLengkap: namaLengkapController.text,
-                                  email: emailController.text,
-                                  nomorHP: nomorHPController.text,
                                 ),
                           ), (Route<dynamic> route) => false,
                         );
