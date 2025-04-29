@@ -21,7 +21,7 @@ class DetailcustPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFDF7F4),
+      backgroundColor: const Color.fromARGB(255, 233, 233, 233),
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: 90,
@@ -61,6 +61,88 @@ class DetailcustPage extends StatelessWidget {
             Text(noHPCust),
             
             SizedBox(height: 24),
+
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Alamat", style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+
+            SizedBox(height: 10,),
+
+            TextFormField(
+              initialValue: alamatCust,
+              readOnly: true,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black12),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black12),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Provinsi", style: TextStyle(fontWeight: FontWeight.bold)),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        initialValue: provinsi,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Kode Pos", style: TextStyle(fontWeight: FontWeight.bold)),
+                      SizedBox(height: 8),
+                      TextFormField(
+                        initialValue: kodePos,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          disabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
