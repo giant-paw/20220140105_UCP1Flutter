@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_105/barang_page.dart';
 import 'package:ucp1_105/customer_page.dart';
 import 'package:ucp1_105/login_page.dart';
 
@@ -185,7 +186,11 @@ class HomePage extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Tambahkan aksi atau navigasi ke halaman Barang Masuk/Keluar
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BarangPage()
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromARGB(255, 29, 179, 144),
