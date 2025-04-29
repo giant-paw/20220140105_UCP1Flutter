@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         child: Container(
-          color: Colors.white.withOpacity(0.4),
+          color: Colors.white.withOpacity(0.6),
           padding: EdgeInsets.symmetric(horizontal: 24.0),
 
           child: Center(
@@ -134,12 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 50,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          254,
-                          75,
-                          159,
-                        ),
+                        backgroundColor: const Color.fromARGB(255, 29, 179, 144),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),

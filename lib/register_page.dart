@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
 
         child: Container(
-          color: Colors.white.withOpacity(0.3),
+          color: Colors.white.withOpacity(0.6),
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -241,14 +241,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 25),
 
                 SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 254, 75, 159),
+                      backgroundColor: const Color.fromARGB(255, 29, 179, 144),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),

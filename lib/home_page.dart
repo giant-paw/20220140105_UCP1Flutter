@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_105/customer_page.dart';
 import 'package:ucp1_105/login_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,11 +46,21 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Selamat Datang $email",
+                    "Selamat Datang",
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
+                    ),
+                  ),
+
+                  const SizedBox(height: 5),
+                  Text(
+                    "$email",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                 ],
@@ -91,7 +102,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 50),
+          const SizedBox(height: 35),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
@@ -102,7 +113,7 @@ class HomePage extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(200, 254, 75, 158), 
+                          backgroundColor: Color.fromARGB(255, 29, 179, 144),
                           padding: const EdgeInsets.all(30),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -127,7 +138,41 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        
+                      ),
+                    ),
+
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CustomerPage(),
+                            ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                          padding: const EdgeInsets.all(30),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.people, color: Colors.white, size: 40),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'Data Pelanggan',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
