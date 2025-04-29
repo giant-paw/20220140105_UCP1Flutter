@@ -5,15 +5,13 @@ import 'package:ucp1_105/home_page.dart';
 
 class LoginPage extends StatefulWidget {
 
-  const LoginPage({Key? key})
-    : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
   @override
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
    final TextEditingController emailController = TextEditingController();
   bool _sembunyikanPassword = true;
 
@@ -32,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
 
           child: Center(
             child: Form(
+              key: _formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -56,8 +55,8 @@ class _LoginPageState extends State<LoginPage> {
 
                   TextFormField(
                     controller: emailController,
-                    validator: (data) {
-                      if(data == null || data.isEmpty){
+                    validator: (value) {
+                      if(value == null || value.isEmpty){
                         return 'Email Tidak Boleh Kosong';
                       }return null;
                     },
@@ -76,8 +75,8 @@ class _LoginPageState extends State<LoginPage> {
 
                   TextFormField(
                     obscureText: _sembunyikanPassword,
-                    validator: (data) {
-                      if(data == null || data.isEmpty){
+                    validator: (value) {
+                      if(value == null || value.isEmpty){
                         return 'Password Tidak Boleh Kosong'; 
                       } return null;
                     },
@@ -140,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       onPressed: () {
+                        if (_formKey.currentState!.validate()) {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
@@ -149,6 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           (route) => false,
                         );
+                        }
                       },
                       
                       child: Text(

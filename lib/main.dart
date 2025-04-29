@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       // Route nya
       initialRoute: '/login',
       routes: {
-        '/login': (context) => const LoginPage(),
+        '/login': (context) => LoginPage(),
         '/register': (context) => const RegisterPage(),
       },
 
