@@ -9,7 +9,6 @@ class BarangPage extends StatefulWidget {
 }
 
 class _BarangPageState extends State<BarangPage> {
-
   final _tanggalController = TextEditingController();
   final _jumlahController = TextEditingController();
 
@@ -59,7 +58,9 @@ class _BarangPageState extends State<BarangPage> {
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.calendar_today),
                   hintText: "Tanggal Transaksi",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
                 onTap: () async {
                   DateTime? pickedDate = await showDatePicker(
@@ -70,7 +71,9 @@ class _BarangPageState extends State<BarangPage> {
                   );
                   if (pickedDate != null) {
                     setState(() {
-                      _tanggalController.text = DateFormat('dd-MM-yyyy').format(pickedDate);
+                      _tanggalController.text = DateFormat(
+                        'dd-MM-yyyy',
+                      ).format(pickedDate);
                     });
                   }
                 },
@@ -79,31 +82,101 @@ class _BarangPageState extends State<BarangPage> {
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
                 value: _jenisTransaksi,
-                items: ["Masuk", "Keluar"]
-                    .map((item) => DropdownMenuItem(value: item, child: Text(item)))
-                    .toList(),
+                items:
+                    ["Masuk", "Keluar"]
+                        .map(
+                          (item) =>
+                              DropdownMenuItem(value: item, child: Text(item)),
+                        )
+                        .toList(),
                 onChanged: (val) => setState(() => _jenisTransaksi = val),
                 decoration: InputDecoration(
                   hintText: "Jenis Transaksi",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
               ),
 
               const SizedBox(height: 16),
-              
+
               DropdownButtonFormField<String>(
                 value: _jenisBarang,
-                items: _barangHarga.keys
-                    .map((item) => DropdownMenuItem(value: item, child: Text(item)))
-                    .toList(),
-                onChanged: (val) => setState(() {
-                  _jenisBarang = val;
-                  _hargaSatuan = _barangHarga[val];
-                }),
+                items:
+                    _barangHarga.keys
+                        .map(
+                          (item) =>
+                              DropdownMenuItem(value: item, child: Text(item)),
+                        )
+                        .toList(),
+                onChanged:
+                    (val) => setState(() {
+                      _jenisBarang = val;
+                      _hargaSatuan = _barangHarga[val];
+                    }),
                 decoration: InputDecoration(
                   hintText: "Jenis Barang",
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
+              ),
+
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Jumlah Barang"),
+                        const SizedBox(height: 8),
+                        TextField(
+                          controller: _jumlahController,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            hintText: "Jumlah Barang",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text("Harga Satuan"),
+                        const SizedBox(height: 8),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                          constraints: const BoxConstraints(
+                            minHeight:
+                                58, 
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Text(
+                            _hargaSatuan != null
+                                ? "Rp. $_hargaSatuan"
+                                : "Rp. ",
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
