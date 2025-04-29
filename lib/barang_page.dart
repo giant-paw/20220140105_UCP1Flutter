@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1_105/detail_barang.dart';
 
 class BarangPage extends StatefulWidget {
   const BarangPage({super.key});
@@ -144,7 +145,7 @@ class _BarangPageState extends State<BarangPage> {
                       ],
                     ),
                   ),
-                  
+
                   const SizedBox(width: 16),
                   Expanded(
                     child: Column(
@@ -155,18 +156,13 @@ class _BarangPageState extends State<BarangPage> {
                         Container(
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          constraints: const BoxConstraints(
-                            minHeight:
-                                58, 
-                          ),
+                          constraints: const BoxConstraints(minHeight: 58),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Text(
-                            _hargaSatuan != null
-                                ? "Rp. $_hargaSatuan"
-                                : "Rp. ",
+                            _hargaSatuan != null ? "Rp. $_hargaSatuan" : "Rp. ",
                             style: const TextStyle(
                               fontSize: 16,
                               color: Colors.black,
@@ -177,6 +173,36 @@ class _BarangPageState extends State<BarangPage> {
                     ),
                   ),
                 ],
+              ),
+
+              const SizedBox(height: 30),
+
+              ElevatedButton(
+                onPressed: () {
+                  final jumlah = int.tryParse(_jumlahController.text) ?? 0;
+                  final harga = _hargaSatuan ?? 0;
+                  final total = jumlah * harga;
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => DetailBarang(
+                            tanggal: _tanggalController.text,
+                            jenisTransaksi: _jenisTransaksi ?? '',
+                            jenisBarang: _jenisBarang ?? '',
+                            jumlahBarang: jumlah,
+                            hargaSatuan: harga,
+                            totalHarga: total,
+                          ),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                  minimumSize: Size(400, 50),
+                ),
+                child: const Text("Submit", style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
