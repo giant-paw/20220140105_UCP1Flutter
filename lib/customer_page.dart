@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_105/detailCust_page.dart';
 
 class CustomerPage extends StatefulWidget {
   const CustomerPage({super.key});
@@ -264,7 +265,22 @@ class _CustomerPageState extends State<CustomerPage> {
               const SizedBox(height: 30),
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => DetailcustPage(
+                            namaCust: _namaCustController.text,
+                            emailCust: _emailCustController.text,
+                            alamatCust: _alamatCustController.text,
+                            noHPCust: _noHPCustController.text,
+                            provinsi: _provinsiCustController.text,
+                            kodePos: _kodePosCustController.text,
+                          ),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 29, 179, 144),
                   minimumSize: Size(400, 70),
