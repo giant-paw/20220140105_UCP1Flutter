@@ -37,6 +37,7 @@ class DetailBarang extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 24),
+
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -49,10 +50,93 @@ class DetailBarang extends StatelessWidget {
                   color: Colors.green,
                 ),
               ),
+
+              const SizedBox(height: 16),
+              const Text(
+                "Data Berhasil Disimpan",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
+              
+              const SizedBox(height: 52),
+
+              dataTampil("Tanggal", formatTanggal(tanggal)),
+
+              Padding(padding: const EdgeInsets.only(top: 15)),
+
+              dataTampil(
+                "Jenis Transaksi",
+                jenisTransaksi == "Masuk" ? "Barang Masuk" : "Barang Keluar",
+              ),
+              
+              Padding(padding: const EdgeInsets.only(top: 15)),
+              dataTampil("Jenis Barang", jenisBarang),
+              
+              Padding(padding: const EdgeInsets.only(top: 15)),
+              dataTampil("Jumlah Barang", jumlahBarang.toString()),
+              
+              
+              Padding(padding: const EdgeInsets.only(top: 15)),
+              dataTampil(
+                "Jenis Harga Satuan",
+                currencyFormatter.format(hargaSatuan),
+              ),
+              
+              Padding(padding: const EdgeInsets.only(top: 15)),
+              dataTampil("Total Harga", currencyFormatter.format(totalHarga)),
+              
+              Padding(padding: const EdgeInsets.only(top: 55)),
+
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Selesai",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  static Widget dataTampil(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          ),
+          Text(
+            value,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static String formatTanggal(String tanggal) {
+    try {
+      final date = DateFormat('dd-MM-yyyy').parse(tanggal);
+      return DateFormat('EEEE, dd MMMM yyyy', 'id_ID').format(date);
+    } catch (e) {
+      return tanggal;
+    }
   }
 }
