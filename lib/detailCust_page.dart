@@ -43,6 +43,26 @@ class DetailcustPage extends StatelessWidget {
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
+        child: Column(
+          children: [
+            SizedBox(height: 16,),
+            CircleAvatar(
+              radius: 70,
+              backgroundImage: AssetImage('assets/images/profil2.jpg'),
+            ),
+
+            SizedBox(height: 16),
+            Text(namaCust, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            
+            SizedBox(height: 4),
+            Text(emailCust),
+            
+            SizedBox(height: 4),
+            Text(noHPCust),
+            
+            SizedBox(height: 24),
+          ],
+        ),
       ),
     );
   }
