@@ -10,12 +10,12 @@ class CustomerPage extends StatefulWidget {
 class _CustomerPageState extends State<CustomerPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController _namaCustomerController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _noHPController = TextEditingController();
-  final TextEditingController _alamatController = TextEditingController();
-  final TextEditingController _provinsiController = TextEditingController();
-  final TextEditingController _kodePosController = TextEditingController();
+  final TextEditingController _namaCustController = TextEditingController();
+  final TextEditingController _emailCustController = TextEditingController();
+  final TextEditingController _noHPCustController = TextEditingController();
+  final TextEditingController _alamatCustController = TextEditingController();
+  final TextEditingController _provinsiCustController = TextEditingController();
+  final TextEditingController _kodePosCustController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +58,7 @@ class _CustomerPageState extends State<CustomerPage> {
                 const SizedBox(height: 10),
 
                 TextFormField(
+                  controller: _namaCustController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Nama Cust Tidak boleh kosong';
@@ -92,6 +93,7 @@ class _CustomerPageState extends State<CustomerPage> {
                           const SizedBox(height: 10),
 
                           TextFormField(
+                            controller: _emailCustController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Email Tidak boleh kosong';
@@ -124,6 +126,7 @@ class _CustomerPageState extends State<CustomerPage> {
                           ),
                           const SizedBox(height: 5),
                           TextFormField(
+                            controller: _noHPCustController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'NO HP Tidak boleh kosong';
@@ -157,6 +160,7 @@ class _CustomerPageState extends State<CustomerPage> {
                 const SizedBox(height: 10),
 
                 TextFormField(
+                  controller: _alamatCustController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Alamat Tidak boleh kosong';
@@ -189,6 +193,7 @@ class _CustomerPageState extends State<CustomerPage> {
                           ),
                           const SizedBox(height: 10),
                           TextFormField(
+                            controller: _provinsiCustController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Provinsi Tidak boleh kosong';
@@ -222,6 +227,7 @@ class _CustomerPageState extends State<CustomerPage> {
                           ),
                           const SizedBox(height: 10),
                           TextFormField(
+                            controller: _kodePosCustController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Kode Pos tidak boleh kosong';
