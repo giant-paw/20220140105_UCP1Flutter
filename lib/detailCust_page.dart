@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_105/home_page.dart';
 
 class DetailcustPage extends StatelessWidget {
   final String namaCust;
@@ -7,6 +8,7 @@ class DetailcustPage extends StatelessWidget {
   final String alamatCust;
   final String provinsi;
   final String kodePos;
+  final String emailLogin;
 
   const DetailcustPage({
     super.key,
@@ -16,6 +18,7 @@ class DetailcustPage extends StatelessWidget {
     required this.alamatCust,
     required this.provinsi,
     required this.kodePos,
+    required this.emailLogin,
   });
 
   @override
@@ -142,6 +145,24 @@ class DetailcustPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+
+            SizedBox(height: 32),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 80),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (context)=> HomePage(email: emailLogin)
+                  ),
+                );
+              },
+              child: Text("Selesai", style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

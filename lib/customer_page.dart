@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ucp1_105/detailCust_page.dart';
 
 class CustomerPage extends StatefulWidget {
-  const CustomerPage({super.key});
+  final String emailLogin;
+
+  const CustomerPage({super.key, required this.emailLogin});
 
   @override
   State<CustomerPage> createState() => _CustomerPageState();
@@ -265,6 +267,7 @@ class _CustomerPageState extends State<CustomerPage> {
 
               ElevatedButton(
                 onPressed: () {
+                  if (_formKey.currentState!.validate()) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -276,9 +279,11 @@ class _CustomerPageState extends State<CustomerPage> {
                             noHPCust: _noHPCustController.text,
                             provinsi: _provinsiCustController.text,
                             kodePos: _kodePosCustController.text,
+                            emailLogin: widget.emailLogin,
                           ),
                     ),
                   );
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 29, 179, 144),

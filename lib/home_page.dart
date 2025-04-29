@@ -148,7 +148,9 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CustomerPage(),
+                              builder:
+                                  (context) =>
+                                      CustomerPage(emailLogin: this.email),
                             ),
                           );
                         },
@@ -177,6 +179,36 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
+
+                const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Tambahkan aksi atau navigasi ke halaman Barang Masuk/Keluar
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                        padding: const EdgeInsets.symmetric(vertical: 30),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Column(
+                        children: const [
+                          Icon(Icons.receipt_long, color: Colors.white, size: 40),
+                          SizedBox(height: 10),
+                          Text(
+                            'Barang Masuk/Keluar',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
               ],
             ),
           ),
