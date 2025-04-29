@@ -10,6 +10,13 @@ class CustomerPage extends StatefulWidget {
 class _CustomerPageState extends State<CustomerPage> {
   final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController _namaCustomerController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _noHPController = TextEditingController();
+  final TextEditingController _alamatController = TextEditingController();
+  final TextEditingController _provinsiController = TextEditingController();
+  final TextEditingController _kodePosController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -244,17 +251,33 @@ class _CustomerPageState extends State<CustomerPage> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 29, 179, 144),
-                    minimumSize: Size(400, 70) 
+                    minimumSize: Size(400, 70),
                   ),
                   child: Text(
-                    'Simpan', 
+                    'Simpan',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 17
-                      ),
+                      fontSize: 17,
                     ),
+                  ),
                 ),
+
+                const SizedBox(height: 16),
+                OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: const BorderSide(color: Color.fromARGB(255, 29, 179, 144)),
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: (){},
+                child: const Text(
+                  'Reset',
+                  style: TextStyle(color: Colors.red, fontSize: 15),
+                ),
+              ),
               ],
             ),
           ),
