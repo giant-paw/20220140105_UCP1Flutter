@@ -140,103 +140,121 @@ class _CustomerPageState extends State<CustomerPage> {
                   ],
                 ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              const Text(
-                'Alamat',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+                const Text(
+                  'Alamat',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
 
-              const SizedBox(height: 10),
-              
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Alamat Tidak boleh kosong';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  hintText: 'Alamat',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 20,
+                const SizedBox(height: 10),
+
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Alamat Tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Alamat',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 20,
+                    ),
                   ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Provinsi',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Provinsi Tidak boleh kosong';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            hintText: 'Provinsi',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 22,
-                              vertical: 20,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Provinsi',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Provinsi Tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Provinsi',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 22,
+                                vertical: 20,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
 
-                  const SizedBox(width: 10),
+                    const SizedBox(width: 10),
 
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Kode Pos',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 10),
-                        TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Kode Pos tidak boleh kosong';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            hintText: 'Kode Pos',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 22,
-                              vertical: 20,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Kode Pos',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Kode Pos tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Kode Pos',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 22,
+                                vertical: 20,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
+                  ],
+                ),
+
+                const SizedBox(height: 30),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 29, 179, 144),
+                    minimumSize: Size(400, 70) 
                   ),
-                ],
-              ),
+                  child: Text(
+                    'Simpan', 
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17
+                      ),
+                    ),
+                ),
               ],
             ),
           ),
