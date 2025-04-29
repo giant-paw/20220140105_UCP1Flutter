@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ucp1_105/barang_page.dart';
 import 'package:ucp1_105/customer_page.dart';
 import 'package:ucp1_105/login_page.dart';
+import 'package:ucp1_105/piket_page.dart';
 
 class HomePage extends StatelessWidget {
   final String email;
@@ -112,7 +113,16 @@ class HomePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      PiketPage(emailLogin: this.email),
+                            )
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 29, 179, 144),
                           padding: const EdgeInsets.all(30),
