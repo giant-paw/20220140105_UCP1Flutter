@@ -36,7 +36,6 @@ class _CustomerPageState extends State<CustomerPage> {
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: 90,
-        backgroundColor: Colors.transparent,
         flexibleSpace: Container(
           decoration: BoxDecoration(
             image: DecorationImage(

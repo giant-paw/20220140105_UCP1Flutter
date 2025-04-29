@@ -16,11 +16,34 @@ class DetailcustPage extends StatelessWidget {
     required this.alamatCust,
     required this.provinsi,
     required this.kodePos,
-    });
-
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: const Color(0xFFFDF7F4),
+      appBar: AppBar(
+        centerTitle: true,
+        toolbarHeight: 90,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/blur.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+
+        title: Text(
+          'Detail $namaCust',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
+      ),
+    );
   }
 }
