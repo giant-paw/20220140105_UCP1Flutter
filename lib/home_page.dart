@@ -6,6 +6,7 @@ import 'package:ucp1_105/piket_page.dart';
 
 class HomePage extends StatelessWidget {
   final String email;
+  
 
   const HomePage({super.key, required this.email});
 
