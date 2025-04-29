@@ -8,6 +8,8 @@ class CustomerPage extends StatefulWidget {
 }
 
 class _CustomerPageState extends State<CustomerPage> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,13 +17,11 @@ class _CustomerPageState extends State<CustomerPage> {
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: 90,
-        backgroundColor: Colors.transparent, 
+        backgroundColor: Colors.transparent,
         flexibleSpace: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                'assets/images/blur.jpg',
-              ), 
+              image: AssetImage('assets/images/blur.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -31,6 +31,53 @@ class _CustomerPageState extends State<CustomerPage> {
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
+      ),
+
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Nama Customer',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+
+                const SizedBox(height: 10),
+
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Nama Cust Tidak boleh kosong';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Nama Customer',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
+                  ),
+                ),
+
+                Row(
+                  children: [
+                    
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
