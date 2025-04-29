@@ -28,8 +28,8 @@ class DetailPiket extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text(
-          'Detail Piket',
+        title: Text(
+          'Detail ${piket['tugas']}',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
