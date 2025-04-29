@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1_105/home_page.dart';
 
 class DetailBarang extends StatelessWidget {
-
   final String tanggal;
   final String jenisTransaksi;
   final String jenisBarang;
   final int jumlahBarang;
   final int hargaSatuan;
   final int totalHarga;
+  final String emailLogin;
 
   const DetailBarang({
     super.key,
@@ -18,11 +19,11 @@ class DetailBarang extends StatelessWidget {
     required this.jumlahBarang,
     required this.hargaSatuan,
     required this.totalHarga,
+    required this.emailLogin,
   });
 
   @override
   Widget build(BuildContext context) {
-
     final currencyFormatter = NumberFormat.currency(
       locale: 'id_ID',
       symbol: 'Rp. ',
@@ -56,7 +57,7 @@ class DetailBarang extends StatelessWidget {
                 "Data Berhasil Disimpan",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
-              
+
               const SizedBox(height: 52),
 
               dataTampil("Tanggal", formatTanggal(tanggal)),
@@ -67,23 +68,22 @@ class DetailBarang extends StatelessWidget {
                 "Jenis Transaksi",
                 jenisTransaksi == "Masuk" ? "Barang Masuk" : "Barang Keluar",
               ),
-              
+
               Padding(padding: const EdgeInsets.only(top: 15)),
               dataTampil("Jenis Barang", jenisBarang),
-              
+
               Padding(padding: const EdgeInsets.only(top: 15)),
               dataTampil("Jumlah Barang", jumlahBarang.toString()),
-              
-              
+
               Padding(padding: const EdgeInsets.only(top: 15)),
               dataTampil(
                 "Jenis Harga Satuan",
                 currencyFormatter.format(hargaSatuan),
               ),
-              
+
               Padding(padding: const EdgeInsets.only(top: 15)),
               dataTampil("Total Harga", currencyFormatter.format(totalHarga)),
-              
+
               Padding(padding: const EdgeInsets.only(top: 55)),
 
               SizedBox(
@@ -97,7 +97,13 @@ class DetailBarang extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(email: emailLogin),
+                      ),
+                      (Route<dynamic> route) => false,
+                    );
                   },
                   child: const Text(
                     "Selesai",

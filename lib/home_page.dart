@@ -198,7 +198,7 @@ class HomePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => BarangPage()
+                          MaterialPageRoute(builder: (context) => BarangPage(emailLogin: this.email)
                           ),
                         );
                       },

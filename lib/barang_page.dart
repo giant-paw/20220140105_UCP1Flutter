@@ -3,7 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:ucp1_105/detail_barang.dart';
 
 class BarangPage extends StatefulWidget {
-  const BarangPage({super.key});
+  
+  final String emailLogin;
+  const BarangPage({super.key, required this.emailLogin});
 
   @override
   State<BarangPage> createState() => _BarangPageState();
@@ -237,6 +239,8 @@ class _BarangPageState extends State<BarangPage> {
                                 jumlahBarang: jumlah,
                                 hargaSatuan: harga,
                                 totalHarga: total,
+                                emailLogin: widget.emailLogin,
+                                
                               ),
                         ),
                       );

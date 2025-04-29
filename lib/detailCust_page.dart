@@ -157,9 +157,10 @@ class DetailcustPage extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushAndRemoveUntil(
                   context, MaterialPageRoute(builder: (context)=> HomePage(email: emailLogin)
                   ),
+                  (Route<dynamic> route) => false,
                 );
               },
               child: Text("Selesai", style: TextStyle(color: Colors.white)),
